@@ -8,10 +8,7 @@ bot = telebot.TeleBot(TG_TOK)
 def start_bot(m):
     bot.send_message(m.chat.id, 'Привет!')
 
-@bot.message_handler(commands=['game'])
-def game_bot(m):
-    bot.send_message(m.chat.id, 'Игра пока отключена')
-
+# Курс обмена валют
 @bot.message_handler(commands=['change'], content_types='text')
 def change(m):
     bot.send_message(m.chat.id, 'Ведите кодировку нужной валюты')
@@ -29,5 +26,10 @@ def select_currency_bot(m):
     else:
         bot.send_message(m.chat.id, currency_exchange(m),
                                     reply_markup=types.ReplyKeyboardRemove())
+                                    
+# Игра в крестики-нолики 
+@bot.message_handler(commands=['game'])
+def game_bot(m):
+    bot.send_message(m.chat.id, 'Игра пока отключена')
 
 bot.infinity_polling()
