@@ -14,7 +14,7 @@ def  currency_exchange(message):
                 if k == valute:
                     res = v
     if res == {}:
-        return 'Такой валюты нет.\nСписок можно посмотреть по команде "Curhelp"'
+        return 'Такой валюты нет.\nСписок кодировок можно посмотреть по кнопке ниже'
     return f'{res["Nominal"]} {res["Name"]} стоит {res["Value"]} рублей'
 
 def valutes():
